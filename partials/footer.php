@@ -1,14 +1,13 @@
 <footer>
-	<p>
-	<img src="https://licensebuttons.net/l/by-sa/3.0/88x31.png" height="31px" /><br/>
-	<time datetime="2018-09-18">2018</time>.</p>
-	</p>
-	<address>
-		<p class="izq"> Written by
-			<a href="mailto:webmaster@example.com" rev="author">Lola</a>.</p>
-		<p class="der"> Visit us at:12006 UJI </p>
-	</address>
+    <p class="izq">
+        <b>Contacto</b> </br>
+        Calle falsa 123 </br>
+        Teléfono: +34 964 00 00 00 </br>
+        Móvil: +34 646 00 00 00 </br>
+    </p>
+    <p class="der">
+    Obten una aplia gama de jabones al mejor precio
+    </p>
 </footer>
 </body>
-
 </html>

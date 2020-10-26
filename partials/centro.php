@@ -1,1 +1,5 @@
-<h1> Mi LOGO de tienda AQUÍ</h1>
+<main>
+    <h1>
+        BIENVENIDO A LA MEJOR WEB SOBRE JABONES QUE EXITES
+    </h1>
+</main>
