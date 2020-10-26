@@ -1,13 +1,13 @@
 <?php
 
 /** The name of the database  */
-define('DB_NAME', 'al351809_ei1036_42');
+define('DB_NAME', 'al269436_ei1036_42');
 
 /** Fatabase username */
-define('DB_USER', 'al351809');
+define('DB_USER', 'al269436');
 
 /** Database password */
-define('DB_PASSWORD', '48725381L');
+define('DB_PASSWORD', '20913738E');
 
 /** Database hostname */
 define('DB_HOST', "db-aules.uji.es");
@@ -21,9 +21,10 @@ define('DB_COLLATE', '');
 if (!isset($pdo)){
   try{
    $pdo = new PDO("pgsql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
+   echo('Conectado db-aules');
   }
   catch (PDOException $e) {
-		//echo "Failed to get DB handle: " . $e->getMessage() . "\n";
+		echo "Failed to get DB handle: " . $e->getMessage() . "\n";
 		$pdo = new PDO(
       'sqlite::memory:',
       null,
