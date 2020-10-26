@@ -36,7 +36,7 @@ switch ($action) {
         $central = registrar_usuario("usuarios"); //tabla usuarios
         break;
     case "listar_productos":
-        $central = table2html("productos"); //tabla productos
+        $central = table2html("producto"); //tabla productos
         break;
     case "registrar_producto":
         $central = "<p>Todavia no puedo registrar productos</p>"; //formulario producto

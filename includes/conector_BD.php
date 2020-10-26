@@ -21,7 +21,7 @@ define('DB_COLLATE', '');
 if (!isset($pdo)){
   try{
    $pdo = new PDO("pgsql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
-   echo('Conectado db-aules');
+   //echo('Conectado db-aules');
   }
   catch (PDOException $e) {
 		echo "Failed to get DB handle: " . $e->getMessage() . "\n";
