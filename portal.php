@@ -33,7 +33,7 @@ switch ($action) {
         $central = "/partials/registro_usuario.php"; //formulario usuarios
         break;
     case "insertar_usuario":
-        $central = registrar_usuario("usuarios"); //tabla usuarios
+        $central = registrar_usuario("clientes"); //tabla clientes
         break;
     case "listar_productos":
         $central = table2html("producto"); //tabla productos
