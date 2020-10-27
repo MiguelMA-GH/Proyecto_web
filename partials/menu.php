@@ -6,6 +6,7 @@
 		<li>
 			<a href="?action=listar_productos">Productos</a>
 		</li>
+
 		<?php 
 		
 		 if (!isset($_SESSION['usuario'])){
@@ -17,5 +18,8 @@
 		elseif (isset($_SESSION['usuario']))
 		    echo '<li><"<a href="?action=ver_cesta">Cesta de Compra</a></li>';
         ?>
+        <li>
+			<a href="?action=ver_cesta">Carrito</a>
+		</li>
 	</ul>
 </nav>

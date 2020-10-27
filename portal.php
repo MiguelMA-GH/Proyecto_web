@@ -1,5 +1,17 @@
 <?php
+    //view_form.php
 
+/**
+ * * Descripción: Ejemplo de proyecto
+ * *
+ * * 
+ * *
+ * * @author  Rafael Berlanga
+ * * @copyright 2020 Rafa B.
+ * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
+ * * @version 1
+
+ * */
 
 session_start();
 
@@ -12,6 +24,8 @@ include(dirname(__FILE__)."/includes/table2html.php");
 
 include(dirname(__FILE__)."/includes/registrar_usuario.php");
 include(dirname(__FILE__)."/includes/autentificar_usuario.php");
+include(dirname(__FILE__)."/includes/encestar_producto.php");
+include(dirname(__FILE__)."/includes/eliminar_producto_cesta.php");
 
 
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
@@ -33,10 +47,10 @@ switch ($action) {
         $central = "/partials/registro_usuario.php"; //formulario usuarios
         break;
     case "insertar_usuario":
-        $central = registrar_usuario("clientes"); //tabla clientes
+        $central = registrar_usuario("usuarios"); //tabla usuarios
         break;
     case "listar_productos":
-        $central = table2html("producto"); //tabla productos
+        $central = table2html_prod("producto"); //tabla productos
         break;
     case "registrar_producto":
         $central = "<p>Todavia no puedo registrar productos</p>"; //formulario producto
@@ -45,13 +59,16 @@ switch ($action) {
         $central = "<p>Todavía no puedo insertar productos en la BD</p>"; //tabla productos
         break;
     case "ver_cesta":
-        $central = "<p>Todavia no puedo ver la cesta</p>"; //cesta en $_SESSION["cesta"]
+        $central = table2html_carr("carrito");; //cesta en $_SESSION["cesta"]
         break;
     case "encestar":
-        $central = "<p>Todavía no puedo añadir a la cesta</p>"; //tabla compras
+        $central = encestar_producto("carrito"); //tabla compras
         break;
     case "realizar_compra":
         $central = "<p>Todavía no puedo añadir a la cesta</p>"; //cesta en $_SESSION["cesta"]
+        break;
+    case "eliminar_del_carrito":
+        $central = eliminar_producto_cesta("carrito"); 
         break;
     default:
         $data["error"] = "Accion No permitida";

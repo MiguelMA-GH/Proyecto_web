@@ -13,9 +13,9 @@
 		<input type="text" name="email" class="item_requerid" size="20" maxlength="25" value=""
 		 placeholder="kiko@ic.es" />
 		<br/>
-		<label for="passwd">Password</label>
+		<label for="passwd">Clave</label>
 		<br/>
-		<input type="password" name="passwd" class="item_requerid" size="20" maxlength="25" value=""
+		<input type="password" name="passwd" class="item_requerid" size="8" maxlength="25" value=""
 		/>
 		<br/>
 		<p><input type="submit" value="Enviar">
