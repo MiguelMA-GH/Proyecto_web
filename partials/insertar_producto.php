@@ -9,10 +9,8 @@
 		
 		<label for="imagen">Imagen</label>
 		
-		<input type="text" name="imagen" class="item_requerid" size="20" maxlength="25" value=""
+		<input type="text" name="imagen" class="item_requerid" size="20" maxlength="25" value="<?php if (isset($_FILES["upload"]["name"]))echo "img/".$_FILES["upload"]["name"] ?>"
 		/>
-		
-		
 		
 		<p><input type="submit" value="Enviar">
 		<input type="reset" value="Deshacer">
@@ -26,7 +24,7 @@
     <button  onclick="ocultarDiv()" id="cerrar">X</button>
         <form action="?action=upload" method="post" enctype="multipart/form-data" id="form_imagen">
             <b>Selecciona	una	imagen:</b>
-            <input type="file" class="uploadFile" accept="image/*" name="tmp_file" id="upload" onchange="handleFiles(event)">
+            <input type="file" class="uploadFile" accept="image/*" name="upload" id="upload" onchange="handleFiles(event)">
 			<canvas id="canvas" class="canvas"></canvas>
             <input type="submit" class ="botonCentrado" value="SUBIR" name="submit">
         </form>
