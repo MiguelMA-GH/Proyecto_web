@@ -4,8 +4,12 @@
 			<a href="./portal.php?action=home">Home</a>
 		</li>
 		<li>
+			<a href="?action=insertar_producto">Insertar producto</a>
+		</li>
+		<li>
 			<a href="?action=listar_productos">Productos</a>
 		</li>
+		
 
 		<?php 
 		

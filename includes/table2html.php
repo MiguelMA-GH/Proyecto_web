@@ -60,4 +60,5 @@ function table2html_carr($table)
         print "<h1> No hay resultados </h1>"; 
 }
 
+
 ?>

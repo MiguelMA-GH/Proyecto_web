@@ -9,5 +9,6 @@
     Obten una aplia gama de jabones al mejor precio
     </p>
 </footer>
+<script language="javascript" type="text/javascript" src="code/codigo.js"></script>
 </body>
 </html>

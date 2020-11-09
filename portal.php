@@ -44,7 +44,7 @@ switch ($action) {
         $central = "<p>Todavia no puedo registrar productos</p>"; //formulario producto
         break;
     case "insertar_producto":
-        $central = "<p>Todavía no puedo insertar productos en la BD</p>"; //tabla productos
+        $central = "/partials/insertar_producto.php"; //tabla productos
         break;
     case "ver_cesta":
         $central = table2html_carr("carrito");; //cesta en $_SESSION["cesta"]
