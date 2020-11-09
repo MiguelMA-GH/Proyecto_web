@@ -144,5 +144,32 @@ section#blog {
 
 #form_imagen {
     float: right;
-    margin-top:10%
+    margin-top:5%
+}
+
+.canvas{
+    top: 280px;
+    right: 454px;
+    width: 400px;
+    height: 235px;
+    border: 1px solid #000000;
+    border-style: dotted;
+}
+
+.botonCentrado{
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+  margin-top: 5%
+}
+
+.uploadFile{
+    margin-top:5%
+}
+
+label{
+    display: block;
+    margin-block-start: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
