@@ -19,7 +19,15 @@ function handleFiles(e)	{
     img.onload	=	function()	{
                     ctx.drawImage(img,	20,20);
     }
+    
+    localStorage.setItem('name', document.getElementById('nameSt').value);
+     
+}
+
+function borrarStorage(){
+    localStorage.removeItem('name');
 }
 
 
 document.getElementById('imagen').style.display='none';
+document.getElementById('nameSt').value = localStorage.getItem('name');

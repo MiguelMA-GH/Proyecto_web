@@ -4,7 +4,7 @@
 
 		<label for="nombre">Nombre</label>
 	
-		<input type="text" name="name" class="item_requerid" size="20" maxlength="25" value=""
+		<input type="text" id="nameSt" name="name" class="item_requerid" size="20" maxlength="25" value=""
 		/>
 		
 		<label for="imagen">Imagen</label>
@@ -12,7 +12,7 @@
 		<input type="text" name="imagen" class="item_requerid" size="20" maxlength="25" value="<?php if (isset($_FILES["upload"]["name"]))echo "img/".$_FILES["upload"]["name"] ?>"
 		/>
 		
-		<p><input type="submit" value="Enviar">
+		<p><input type="submit" onclick="borrarStorage()" value="Enviar">
 		<input type="reset" value="Deshacer">
 		</p>
 	</form>
@@ -26,6 +26,7 @@
             <b>Selecciona	una	imagen:</b>
             <input type="file" class="uploadFile" accept="image/*" name="upload" id="upload" onchange="handleFiles(event)">
 			<canvas id="canvas" class="canvas"></canvas>
+
             <input type="submit" class ="botonCentrado" value="SUBIR" name="submit">
         </form>
     </div>
