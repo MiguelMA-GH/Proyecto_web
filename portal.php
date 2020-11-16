@@ -14,6 +14,7 @@ include(dirname(__FILE__)."/includes/registrar_usuario.php");
 include(dirname(__FILE__)."/includes/autentificar_usuario.php");
 include(dirname(__FILE__)."/includes/encestar_producto.php");
 include(dirname(__FILE__)."/includes/eliminar_producto_cesta.php");
+include(dirname(__FILE__)."/includes/registrar_producto.php");
 
 
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
@@ -41,7 +42,7 @@ switch ($action) {
         $central = table2html_prod("producto"); //tabla productos
         break;
     case "registrar_producto":
-        $central = "<p>Todavia no puedo registrar productos</p>"; //formulario producto
+        $central = registrar_producto("producto"); //formulario producto
         break;
     case "insertar_producto":
         $central = "/partials/insertar_producto.php"; //tabla productos

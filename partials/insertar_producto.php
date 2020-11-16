@@ -1,6 +1,6 @@
 <main>
 	<h1>Datos del producto: </h1>
-	<form class="form_ins_prod" action="?action=insertar_producto" method="POST">
+	<form class="form_ins_prod" action="?action=registrar_producto" method="POST">
 
 		<label for="nombre">Nombre</label>
 	

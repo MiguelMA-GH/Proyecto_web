@@ -68,7 +68,8 @@ table { background-color:#FFFFE0;
     color:#000;
     font-size:18px;
     border:1px;
-    margin: 10px auto; }
+    margin: 10px auto;
+    text-align: center; }
 th { background-color:#BDB76B; }
 td, th { border: 1px solid;padding:1px;width: 10%; }
 td { border-bottom:1px dotted #BDB76B; }

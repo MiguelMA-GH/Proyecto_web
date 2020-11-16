@@ -18,7 +18,11 @@ function table2html_prod($table)
         foreach ($rows as $row) {
             print "<tr>";
             foreach ($row as $key => $val) {
-                echo "<td>", $val, "</td>";
+                if ( $key == 'imagen'){
+                    echo "<td><img src=", $val, "></td>";
+                }
+                else
+                    echo "<td>", $val, "</td>";
             }
             echo "<td><a href=\"portal.php?action=encestar&id_producto=",$row['product_id'],"&cliente=4\"><input type=\"submit\" value=\"Añadir\" /></a></td>";
             print "</tr>";
