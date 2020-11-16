@@ -4,12 +4,12 @@
 
 		<label for="nombre">Nombre</label>
 	
-		<input type="text" id="nameSt" name="name" class="item_requerid" size="20" maxlength="25" value=""
+		<input type="text" id="nameSt" name="name" class="item_requerid" size="20" maxlength="25" value="" required
 		/>
 		
 		<label for="imagen">Imagen</label>
 		
-		<input type="text" name="imagen" class="item_requerid" size="20" maxlength="25" value="<?php if (isset($_FILES["upload"]["name"]))echo "img/".$_FILES["upload"]["name"] ?>"
+		<input type="text" name="imagen" class="item_requerid" size="20" maxlength="25" value="<?php if (isset($_FILES["upload"]["name"]))echo "img/".$_FILES["upload"]["name"] ?>" required
 		/>
 		
 		<p><input type="submit" onclick="borrarStorage()" value="Enviar">
