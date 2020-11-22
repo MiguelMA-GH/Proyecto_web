@@ -23,7 +23,7 @@
 		    echo '<li><"<a href="?action=ver_cesta">Cesta de Compra</a></li>';
         ?>
         <li>
-			<a href="?action=ver_cesta">Carrito</a>
+			<img class = "imagenCarrito" onclick="mostrarDivCarrito()"  src ="/img/icon_market_car.png" >
 		</li>
 	</ul>
 </nav>

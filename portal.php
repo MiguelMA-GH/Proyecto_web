@@ -15,6 +15,7 @@ include(dirname(__FILE__)."/includes/autentificar_usuario.php");
 include(dirname(__FILE__)."/includes/encestar_producto.php");
 include(dirname(__FILE__)."/includes/eliminar_producto_cesta.php");
 include(dirname(__FILE__)."/includes/registrar_producto.php");
+include(dirname(__FILE__)."/partials/carrito.php");
 
 
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
@@ -96,7 +97,8 @@ switch ($action) {
         $central = "/partials/insertar_producto.php";
     break;
     case "ver_cesta":
-        $central = table2html_carr("carrito");; //cesta en $_SESSION["cesta"]
+        $central = "/partials/carrito.php";
+        #$central = table2html_carr("carrito"); //cesta en $_SESSION["cesta"]
         break;
     case "encestar":
         $central = encestar_producto("carrito"); //tabla compras

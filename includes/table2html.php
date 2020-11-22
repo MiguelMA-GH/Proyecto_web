@@ -24,7 +24,9 @@ function table2html_prod($table)
                 else
                     echo "<td>", $val, "</td>";
             }
-            echo "<td><a href=\"portal.php?action=encestar&id_producto=",$row['product_id'],"&cliente=4\"><input type=\"submit\" value=\"Añadir\" /></a></td>";
+            ?>
+            <td><button onclick="insertarCarrito(<?php echo $row['product_id'] ?>, '<?php echo $row['nombre'] ?>' ,<?php echo 4 ?>)">Añadir</button></td>
+            <?php
             print "</tr>";
             
         }
