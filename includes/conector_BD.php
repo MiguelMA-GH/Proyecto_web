@@ -21,8 +21,8 @@ define('DB_COLLATE', '');
 
 function crearTablas() {
     global $pdo;
-  $producto="CREATE TABLE IF NOT EXISTS  producto (product_id SERIAL PRIMARY KEY, nombre VARCHAR(50) NOT NULL, imagen VARCHAR(50) NOT NULL);";
-  $carrito="CREATE TABLE IF NOT EXISTS  carrito (item_id SERIAL PRIMARY KEY, client_id int NOT NULL, product_id int NOT NULL, fecha date);";
+  $producto="CREATE TABLE IF NOT EXISTS  producto (product_id SERIAL PRIMARY KEY, nombre VARCHAR(50) NOT NULL, imagen VARCHAR(50) NOT NULL, precio float NOT NULL);";
+  $carrito="CREATE TABLE IF NOT EXISTS  carrito (item_id SERIAL PRIMARY KEY, client_id int NOT NULL, product_id int NOT NULL, fecha date, precio float NOT NULL);";
   try{
         $consulta_1 = $pdo->prepare($producto);
         $consulta_1->execute();

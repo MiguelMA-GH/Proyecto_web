@@ -1,12 +1,81 @@
 var lista = [];
+var Prod2ID = {};
 const listaCarrito = document.querySelector('.lista_carrito');
 window.onload = function() {
   if (localStorage.getItem("carrito")) {
   	var list = JSON.parse(localStorage.getItem("carrito"));
   	JSON.stringify(list);	
   	mostrar(list);
+    let params = (new URL(document.location)).searchParams;
+    let url_actual = params.get('action'); 
+    if(url_actual == "listar_productos") {
+        mostrarProductos();
+    }
+
   }
 };
+
+function mostrarProductos() {
+    fetch('./includes/JSON_productos.php')
+    .then(response => response.json())
+    .then(data => arribaEspaña(data));
+}
+
+function arribaEspaña(data) {
+
+    data.forEach(x => {
+        let item = document.createElement('div');
+        item.setAttribute("id",x['product_id']);
+        item.setAttribute("class","item");
+        document.getElementById('visualizameesta').appendChild(item);
+    })
+
+    data.forEach(x => {
+        item = document.getElementById(x['product_id']);
+        var parrafo = document.createElement('p');
+        var texto = document.createTextNode(x['nombre']+" "+x['precio']);
+        parrafo.appendChild(texto);
+        var foto = document.createElement('img');
+        foto.setAttribute("heigth","100");
+        foto.setAttribute("width","100");
+        foto.setAttribute("src",x['imagen']);
+
+        var boton = document.createElement('button');
+        boton.setAttribute("type","submit");
+        boton.innerHTML = "Comprar";
+        item.appendChild(foto);
+        item.appendChild(parrafo);
+        item.appendChild(boton);
+        let n = document.createElement('option');
+        n.value = x['nombre'];
+        Prod2ID[x['nombre']] = x['product_id'];
+        document.getElementById('productos').appendChild(n);
+
+    })
+}
+
+function buscarProducto(texto) {
+    id = Prod2ID[texto.value];
+    document.getElementById(id).scrollIntoView()
+}
+
+function filtrarPorPrecio() {
+    var min = document.getElementById("minimo").value;
+    var max = document.getElementById("maximo").value;
+    const data = new FormData()
+    data.append('minimo', min);
+    data.append('maximo', max);
+
+    fetch('./includes/precio.php', { method: 'POST',  body: data })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("visualizameesta").innerHTML = "";
+        arribaEspaña(data)
+    })
+    .then(console.log)
+    .catch(console.log)
+}
+
 
 function mostrarDiv()
 {
