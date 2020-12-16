@@ -84,22 +84,33 @@
     <!-- inicialmente estará vacío -->
     </ons-list>
 
-    <ons-button modifier="large">Comprar</ons-button>
+    <ons-button modifier="large" onclick="comprar()">Comprar</ons-button>
   </ons-page>
 
 </template>
   
 <script>
 var lista = [];
+var productos = new Array();
+var direccion = "comprar.php?productos=";
 
 window.onload = function() {
   if (localStorage.getItem("carrito")) {
-  	var list = JSON.parse(localStorage.getItem("carrito"));
-  	JSON.stringify(list);	
+    var list = JSON.parse(localStorage.getItem("carrito"));
+    JSON.stringify(list);	
+    iniciarProductos(list);
   	mostrarCesta(list);
 
   }
 };
+
+
+function iniciarProductos(lista){
+  lista.forEach(x => {
+    listar(x.id_prod);
+  })
+ 
+}
 
 function mostrarProductos() {
     fetch('./includes/JSON_productos.php')
@@ -117,7 +128,7 @@ data.forEach(x => {
     <img src='${x['imagen']}'>
     </img></br>
     ${x['precio']}€ </br>
-    <ons-button onclick=intermedia(${x['product_id']})>Comprar</ons-button>
+    <ons-button onclick=intermedia(${x['product_id']})>Añadir al carrito</ons-button>
     </div>`
     document.getElementById('carousel').appendChild(nodo)
 })
@@ -142,10 +153,7 @@ function mostrarCesta(lista){
         document.getElementById('cesta').appendChild(nodo)
     
         
-    })
-    
-    
-    
+    }) 
 }
 
 function intermedia(id){
@@ -156,6 +164,7 @@ function intermedia(id){
 
 function insertarCarrito(id_producto, data){
     var nombre
+    listar(id_producto)
     data.forEach(x => {
         if (x['product_id'] == id_producto){
              nombre = x['nombre']
@@ -178,13 +187,47 @@ function insertarCarrito(id_producto, data){
    mostrarCesta(lista);
 };
 
+function listar(id){
+  productos.push(id);
+}
+
 function borrarCarrito(id) {
 	lista = JSON.parse(localStorage.getItem("carrito"));
 	JSON.stringify(lista);
-	lista.splice(id,1);
+  lista.splice(id,1);
+  borrarlista(id)
 	localStorage.setItem("carrito", JSON.stringify(lista));
 	mostrarCesta(lista);
 }
+
+function borrarlista(id){
+  var i = productos.indexOf(id);
+  productos.splice(id,1);
+}
+
+function comprar() {
+    direccion = "comprar.php?productos=";
+		for (var i = 0; i < productos.length; i++) {
+      if (i == 0){
+        direccion=direccion+productos[i];
+      }  
+      else{
+        direccion=direccion+","+productos[i];
+      }
+		}
+    fetch('./mobile/'+direccion)
+  	.then(response => response.json())
+  	.then(data => {
+      if(data["resultado"] == "KO") {
+  				alert("KO");
+  			} else {
+  				alert("OK");
+          lista = []
+          localStorage.removeItem("carrito");
+          mostrarCesta(lista);
+  			}
+    });
+	}
 
 
 
